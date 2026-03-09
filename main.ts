@@ -1,5 +1,4 @@
 scene.onOverlapTile(SpriteKind.Player, sprites.swamp.swampTile1, function (sprite, location) {
-    tiles.placeOnRandomTile(mySprite, sprites.swamp.swampTile2)
     scene.setBackgroundImage(img`
         8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888
         8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888
@@ -123,9 +122,37 @@ scene.onOverlapTile(SpriteKind.Player, sprites.swamp.swampTile1, function (sprit
         8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888
         `)
     tiles.setCurrentTilemap(tilemap`level2`)
+    tiles.placeOnRandomTile(mySprite, sprites.swamp.swampTile2)
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    mySprite.setVelocity(0, -70)
+    if (mySprite.vy == 0) {
+        mySprite.ay = -200
+        pause(300)
+        mySprite.ay = 250
+    }
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile5`, function (sprite, location) {
+    sprite.setImage(img`
+        . . 2 2 2 . . 2 . . . . . 2 . . 
+        . . . . 2 . . 2 . . . . 2 . 2 2 
+        2 2 . 2 2 . . 2 . . . 2 . 2 2 . 
+        2 2 2 2 2 . . 2 . 2 2 2 2 2 2 2 
+        2 2 2 2 . . . . 2 2 2 . 2 2 2 2 
+        . . . . 2 . . d 2 . d d d 2 . . 
+        . . . . 2 2 d d . d . 2 d . 2 2 
+        2 . . . d d d d . d . . d 2 2 . 
+        . 2 2 d . d d . d d d . . 2 2 2 
+        2 2 2 d . d d d d d . . . 2 . 2 
+        . 2 d . . d d d d . . . . 2 . 2 
+        2 2 d . . . . d . d . . . . . 2 
+        2 2 d . 2 d d d d d . 2 . . 2 2 
+        2 2 2 d d 2 . 2 . . . . 2 2 2 2 
+        2 2 . . . 2 . 2 . . . . . 2 . 2 
+        2 2 . . . 2 . 2 2 . . . . . 2 2 
+        `)
+    sprites.destroy(mySprite, effects.spray, 500)
+    game.splash("You died in a poisonous swamp pool")
+    game.gameOver(false)
 })
 let mySprite: Sprite = null
 tiles.setCurrentTilemap(tilemap`Start`)
@@ -251,7 +278,6 @@ scene.setBackgroundImage(img`
     7777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
     7777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
     `)
-scene.cameraFollowSprite(mySprite)
 mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
@@ -272,6 +298,5 @@ mySprite = sprites.create(img`
     `, SpriteKind.Player)
 game.showLongText("Good morning nomad ", DialogLayout.Top)
 controller.moveSprite(mySprite, 100, 0)
-forever(function () {
-    mySprite.setVelocity(0, 50)
-})
+scene.cameraFollowSprite(mySprite)
+mySprite.ay = 300
