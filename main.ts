@@ -123,12 +123,13 @@ scene.onOverlapTile(SpriteKind.Player, sprites.swamp.swampTile1, function (sprit
         `)
     tiles.setCurrentTilemap(tilemap`level2`)
     tiles.placeOnRandomTile(mySprite, sprites.swamp.swampTile2)
+    game.splash("Ok let try a jump, press a and point in the direction you want to go to cross the pools")
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (mySprite.vy == 0) {
-        mySprite.ay = -200
-        pause(300)
-        mySprite.ay = 250
+        mySprite.ay = -400
+        pause(200)
+        mySprite.ay = 400
     }
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile5`, function (sprite, location) {

@@ -31,7 +31,7 @@ namespace myTiles {
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
 `, [myTiles.transparency16,sprites.castle.tileGrass3,sprites.builtin.forestTiles0,sprites.castle.tilePath2,sprites.castle.tilePath3,sprites.castle.tilePath1,sprites.castle.tileGrass1,sprites.castle.tileGrass2,sprites.castle.tileDarkGrass3,sprites.swamp.swampTile1], TileScale.Sixteen);
             case "level2":
-            case "level2":return tiles.createTilemap(hex`1400080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000005050700000000000000000000000000000006050201010104010101010101010104040101010103`, img`
+            case "level2":return tiles.createTilemap(hex`14000800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000807050506000000000000000000000000000008090a0201010104010101010101010104040101010103`, img`
 . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . 
@@ -40,7 +40,7 @@ namespace myTiles {
 . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . 
 2 2 2 2 . 2 2 2 2 2 2 2 2 . . 2 2 2 2 2 
-`, [myTiles.transparency16,myTiles.tile1,myTiles.tile2,myTiles.tile3,myTiles.tile7,sprites.swamp.swampTile1,sprites.swamp.swampTile0,sprites.swamp.swampTile2], TileScale.Sixteen);
+`, [myTiles.transparency16,myTiles.tile1,myTiles.tile2,myTiles.tile3,myTiles.tile7,sprites.swamp.swampTile1,sprites.swamp.swampTile2,sprites.builtin.forestTiles28,sprites.builtin.forestTiles27,sprites.builtin.forestTiles5,sprites.builtin.forestTiles7], TileScale.Sixteen);
         }
         return null;
     })
